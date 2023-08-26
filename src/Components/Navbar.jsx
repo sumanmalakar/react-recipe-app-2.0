@@ -1,7 +1,22 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+
+
 
 const Navbar = () => {
+    const navigate = useNavigate();
+
+    const [inputData, setInputData] = useState('')
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+         navigate(`/search/${inputData}`);
+
+         setInputData('')
+
+
+    }
     return (
         <>
             <div className="nav">
@@ -13,26 +28,33 @@ const Navbar = () => {
                 </div>
 
                 <div className="search">
-                    <input type="text" />
+                    <form onSubmit={handleSubmit}>
+                        <input
+                            type="text"
+                            onChange={(e) => setInputData(e.target.value)}
+                        />
+
+                    </form>
+
                 </div>
 
                 <div className="right">
-                
-                        <Link to={`/category/indian`} 
-                        className='link'>
-                         <div>  Indian  </div>  
-                            </Link>
-                   
-                        <Link to={`/category/american`} className='link'><div> American </div>  </Link>
-                 
-                        <Link to={`/category/british`} className='link'><div> British</div>   </Link>
-                        
-                        <Link to={`/category/Chinese`} className='link'><div> Chinese</div>   </Link>
 
-                
-                        <Link to={`/category/thai`} className='link'><div> Thai </div>  </Link>
-             
-                 
+                    <Link to={`/category/indian`}
+                        className='link'>
+                        <div>  Indian  </div>
+                    </Link>
+
+                    <Link to={`/category/american`} className='link'><div> American </div>  </Link>
+
+                    <Link to={`/category/british`} className='link'><div> British</div>   </Link>
+
+                    <Link to={`/category/Chinese`} className='link'><div> Chinese</div>   </Link>
+
+
+                    <Link to={`/category/thai`} className='link'><div> Thai </div>  </Link>
+
+
                 </div>
 
             </div>

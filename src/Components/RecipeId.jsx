@@ -10,6 +10,7 @@ const RecipeId = ({ trending }) => {
 
   const [recipe, setRecipe] = useState({})
 
+const [active, setActive] = useState('ingredient')
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,12 +25,16 @@ const RecipeId = ({ trending }) => {
 
   return (
     <>
-      <div className='main'>
+      
         <Navbar />
 
-        <div style={{ width: '90%', margin: 'auto',textAlign:'center'
+        <div style={{
+          width:'98%',
+           margin: 'auto',
 
-// backgroundColor:'yellow' 
+           textAlign:'center', color:"white",
+
+// backgroundColor:'blue' 
 
 }}>
          <h1>{recipe.strMeal}</h1>
@@ -37,22 +42,28 @@ const RecipeId = ({ trending }) => {
           <div style={{
             // marginTop:'0.5rem',
             display:'flex',
-            justifyContent:'space-between',
-            alignItems:'center'
+            // justifyContent:'center',
+            // alignItems:'center',
+            // flexWrap:'wrap',
+            // gap:'2rem'
           }}>
 
           <div className="img" 
-             style={{  width:'33%',
-             display:'flex',
-            justifyContent:'center',
-            alignItems:'center'
+             style={{  
+              width:'50%',
+              marginTop:'3rem'
+            //   height:"40vh",
+            // //  display:'flex',
+            // // justifyContent:'center',
+            // // alignItems:'center',
+            // backgroundColor:'yellow'
             }}
             
           >
             <img src={recipe.strMealThumb} alt=""
              style={{
-              width:'80%',
-              borderRadius:'5%'
+              width:'50%',
+              borderRadius:'5%',
               // backgroundColor:'yellow'
             }}
               />
@@ -60,34 +71,73 @@ const RecipeId = ({ trending }) => {
 
 
           <div style={{ color: 'white', textAlign:'center',
-          //  backgroundColor:'yellow'
-          maxWidth:'60%'
-           , marginTop:'0' }}>
+          //  backgroundColor:'yellow',
+         width:'85%',
+          minHeight:'50vh',
+          //  marginTop:'0',
+          //  marginLeft:"10rem" 
+           }}>
+
             <div className="button">
-              <button className='btn'>Instruction</button>
-              <button className='btn'>Ingredient</button>
-            </div>
+              <button className='btn' onClick={()=>setActive('ingredient')} >Ingredient</button>
+              <button className='btn' onClick={()=>setActive('instruction')}>Instruction</button>
+              </div>
 
-            <p>{recipe.strInstructions}</p>
            
+          
+              {
+                active === 'ingredient' ?(
+                  <>
+                  <div 
+                  // style={{
+                  //   minWidth:'60%',
+                  //   backgroundColor:'yellow'
+                  // }}
+                  >
 
+                  <div style={{fontSize:'1.5rem', fontWeight:'bold'}}>{recipe.strIngredient1} - {recipe.strMeasure1}</div>
+                  <div style={{fontSize:'1.5rem', fontWeight:'bold'}}>{recipe.strIngredient2} - {recipe.strMeasure1}</div>
+                  <div style={{fontSize:'1.5rem', fontWeight:'bold'}}>{recipe.strIngredient3} - {recipe.strMeasure1}</div>
+                  <div style={{fontSize:'1.5rem', fontWeight:'bold'}}>{recipe.strIngredient4} - {recipe.strMeasure1}</div>
+                  <div style={{fontSize:'1.5rem', fontWeight:'bold'}}>{recipe.strIngredient5} - {recipe.strMeasure1}</div>
+                  <div style={{fontSize:'1.5rem', fontWeight:'bold'}}>{recipe.strIngredient6} - {recipe.strMeasure1}</div>
+                  </div>
+                  </>
+                ):
+                (
+                  //  <div style={{
+                  //   width:'50%',
+                  //   // margin:'auto',
+                  //   backgroundColor:"blue",
+                  //   textAlign:'center',
+                  //   marginLeft:'10rem'
+                    
+                  //  }}>
+
+                     <p>{recipe.strInstructions}</p>
+              //  </div>
+
+              
+                )
+              }
+   
           </div>
 
           </div>
         </div>
-
+{/* 
 <div style={{
    
-   marginTop:'1rem',
+   marginTop:'0.1rem',
  
  }}>
 
 
-        <TrendingSlider trending={trending}
         
         />
-        </div>
-      </div>
+        </div> */}
+        <TrendingSlider trending={trending} />
+      
     </>
   )
 }

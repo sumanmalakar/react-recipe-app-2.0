@@ -23,8 +23,8 @@ const TrendingSlider = ({trending}) => {
         <div style={{
          
           width:'100%',
-          margin:'auto'
-
+          margin:'auto',
+        overflowX:'hidden'
 
         }}>
 

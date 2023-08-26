@@ -5,6 +5,7 @@ import Home from './Components/Home'
 import './App.css'
 import RecipeId from './Components/RecipeId'
 import Category from './Components/Category'
+import SearchInput from './Components/SearchInput'
 
 
 const App = () => {
@@ -57,6 +58,7 @@ const App = () => {
 <Route path = "/" element={<Home popular={popular} trending={trending} />} />
 <Route path = "/:recipeId" element={<RecipeId trending={trending} />} />
 <Route path = "/category/:name" element={<Category trending={trending} />} />
+<Route path = "/search/:searchTerm" element={<SearchInput trending={trending} />} />
 
   </Routes>
 
