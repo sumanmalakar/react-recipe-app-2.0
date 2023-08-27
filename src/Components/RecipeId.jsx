@@ -46,18 +46,10 @@ const [active, setActive] = useState('ingredient')
             // alignItems:'center',
             // flexWrap:'wrap',
             // gap:'2rem'
-          }}>
+          }} className='recipeId'>
 
-          <div className="img" 
-             style={{  
-              width:'50%',
-              marginTop:'3rem'
-            //   height:"40vh",
-            // //  display:'flex',
-            // // justifyContent:'center',
-            // // alignItems:'center',
-            // backgroundColor:'yellow'
-            }}
+          <div className="img recipeImg" 
+            
             
           >
             <img src={recipe.strMealThumb} alt=""
@@ -70,13 +62,15 @@ const [active, setActive] = useState('ingredient')
           </div>
 
 
-          <div style={{ color: 'white', textAlign:'center',
-          //  backgroundColor:'yellow',
-         width:'85%',
-          minHeight:'50vh',
-          //  marginTop:'0',
-          //  marginLeft:"10rem" 
-           }}>
+          <div
+        //    style={{ color: 'white', textAlign:'center',
+        //   //  backgroundColor:'yellow',
+        //  width:'85%',
+        //   minHeight:'50vh',
+        //   //  marginTop:'0',
+        //   //  marginLeft:"10rem" 
+        //    }}
+            className='recipeId-div-2'>
 
             <div className="button">
               <button className='btn' onClick={()=>setActive('ingredient')} >Ingredient</button>
