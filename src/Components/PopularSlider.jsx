@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const PopularSlider = ({popular}) => {
 // console.log("This is data ", popular)
     var settings = {
-        dots: true,
+        // dots: true,
         infinite: true,
         slidesToShow: 3,
         slidesToScroll: 1,
